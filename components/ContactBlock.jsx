@@ -1,3 +1,5 @@
+import NextLink from 'next/link'
+
 export default function ContactBlock() {
     return (
         <>
@@ -33,7 +35,7 @@ export default function ContactBlock() {
                         </div>
                         <div className="flex items-center my-8" data-aos="fade-up">
                             <input id="gdpr_checkbox" type="checkbox" value="" className="w-6 h-6 text-primary bg-gray-100 rounded border-gray-300 focus:ring-transparent dark:ring-offset-transparent focus:ring-2" required/>
-                            <label htmlFor="gdpr_checkbox" className="ml-2 text-sm font-bold text-primary">Ich bin einverstanden mit der Verarbeitung meiner Daten (<a href="/datenschutz" className="hover:text-gray-500">Datenschutz</a>).</label>
+                            <label htmlFor="gdpr_checkbox" className="ml-2 text-sm font-bold text-primary">Ich bin einverstanden mit der Verarbeitung meiner Daten (<NextLink href="/datenschutz"><a rel="noreferrer" className="hover:text-gray-500">Datenschutz</a></NextLink>).</label>
                         </div>
                         <div className="w-full flex justify-center" data-aos="fade-up">
                             <button type="submit" className="text-white bg-primary tracking-widest hover:bg-secondary hover:ring-primary hover:ring-2 hover:text-primary hover:font-bold focus:ring-primary focus:ring-4 focus:outline-none font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center">ABSENDEN</button>

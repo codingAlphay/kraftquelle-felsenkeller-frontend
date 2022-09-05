@@ -28,7 +28,7 @@ function Navbar() {
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
                       <NextLink href="/">
-                        <a><Logo/></a>
+                        <a rel="noreferrer"><Logo/></a>
                       </NextLink>
                     </div>
                     <div className="hidden md:block">
@@ -57,7 +57,7 @@ function Navbar() {
                             </Link>
                             ) : (
                               <NextLink href={item.href}>
-                                <a target='_top' className='px-4 text-primary font-bold rounded-md relative text-xl tracking-wide navbar-element'>{item.name}
+                                <a target='_top' rel="noreferrer" className='px-4 text-primary font-bold rounded-md relative text-xl tracking-wide navbar-element'>{item.name}
                                 <div className='absolute -bottom-2 transition ease-out duration-300 w-8 h-0.5 bg-primary'/></a>
                               </NextLink>
                             )}
