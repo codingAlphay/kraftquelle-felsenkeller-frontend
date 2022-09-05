@@ -127,8 +127,17 @@ function Navbar() {
                         </Link>
                       ) : (
                         <NextLink href={item.href}>
-                          <a target='_top' className='px-4 text-primary font-bold rounded-md relative text-xl tracking-wide navbar-element'>{item.name}
-                          <div className='absolute -bottom-2 transition ease-out duration-300 w-8 h-0.5 bg-primary'/></a>
+                          <a target='_top' className='text-primary px-3 py-2 rounded-md text-md font-semibold tracking-widest'>
+                            <Disclosure.Button
+                              key={item.name}
+                              as="a"
+                              href={item.href}
+                              className={'block px-3 font-bold rounded-md text-lg'}
+                              aria-current={item.current ? 'page' : undefined}
+                            >
+                              {item.name}
+                            </Disclosure.Button>
+                          </a>
                         </NextLink>
                       )}
                     </>
