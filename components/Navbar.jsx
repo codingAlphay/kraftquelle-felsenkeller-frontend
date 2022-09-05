@@ -44,12 +44,7 @@ function Navbar() {
                               smooth={true}
                               offset={-80}
                               duration={500}
-                              className={classNames(
-                                item.current
-                                  ? 'text-primary hover:text-primary '
-                                  : 'text-primary hover:text-primary hover:bg-secondary ',
-                                'px-4 font-bold rounded-md relative text-xl tracking-wide navbar-element'
-                              )}
+                              className={'px-4 font-bold rounded-md relative text-xl tracking-wide navbar-element'}
                               aria-current={item.current ? 'page' : undefined}
                             >
                               {item.name}

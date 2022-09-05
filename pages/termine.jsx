@@ -4,7 +4,7 @@ import LogoConstructor from "../components/LogoConstructor"
 export default function Termine() {
     return (
         <div className='max-w-7xl text-center mx-auto px-4 sm:px-6 lg:px-8'>
-            <div className='py-8'>
+            <div className='py-8 flex justify-center'>
                 <NextLink href="/">
                     <a target='_top' rel="noreferrer"><LogoConstructor/></a>
                 </NextLink>
