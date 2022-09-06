@@ -1,9 +1,15 @@
 import Head from 'next/head'
+import dynamic from 'next/dynamic'
 import HeaderBlock from '../components/HeaderBlock'
 import ContentBlock from '../components/ContentBlock'
-import ContactBlock from '../components/ContactBlock'
 
 export default function Home() {
+  
+  const ContactBlock = dynamic(
+    () => import('../components/ContactBlock'),
+    { ssr: false }
+  )
+
   return (
     <>
       <Head>
