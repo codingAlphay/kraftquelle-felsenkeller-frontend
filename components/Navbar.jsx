@@ -34,10 +34,9 @@ function Navbar() {
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4 animate-fade">
                         {navigation.map((item) => (
-                          <>
+                          <div key={item.name}>
                             {item.anchor ? (
                               <Link
-                              key={item.name}
                               href={item.href}
                               to={item.to}
                               spy={true}
@@ -56,7 +55,7 @@ function Navbar() {
                                 <div className='absolute -bottom-2 transition ease-out duration-300 w-8 h-0.5 bg-primary'/></a>
                               </NextLink>
                             )}
-                          </>
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -70,20 +69,13 @@ function Navbar() {
                           <img src="./hotel.svg" className="w-5 hidden md:block" alt="" />
                         </a>
                     </NextLink>
-                    <Link
-                      key={'buchungmobile'}
-                      href={'buchung'}
-                      to={'buchung'}
-                      spy={true}
-                      smooth={true}
-                      offset={-80}
-                      duration={500}
-                      className={'order-first mr-4 md:mr-0 md:hidden animate-fade'}
-                    >
-                      <div className="animate-wiggle md:hidden flex-shrink-0 p-2 bg-primary text-white font-bold tracking-widest rounded-md transition ease-out hover:scale-110 duration-300">
-                        <img src="./hotel_mobile.svg" className="w-5" alt="" />
-                      </div>
-                    </Link>
+                    <NextLink href="https://www.felsenkeller.at/de/index.html">
+                      <a rel="noreferrer" className='order-first mr-4 md:mr-0 md:hidden animate-fade'>
+                        <div className="animate-wiggle md:hidden flex-shrink-0 p-2 bg-primary text-white font-bold tracking-widest rounded-md transition ease-out hover:scale-110 duration-300">
+                          <img src="./hotel_mobile.svg" className="w-5" alt="" />
+                        </div>
+                      </a>
+                    </NextLink>
                   </div>
 
                   <div className="-mr-2 flex md:hidden animate-fade">
@@ -102,10 +94,9 @@ function Navbar() {
               <Disclosure.Panel className="md:hidden">
                 <div className="flex flex-col px-2 pt-2 pb-3 space-y-1 sm:px-3">
                   {navigation.map((item) => (
-                    <>
+                    <div className='flex' key={item.name}>
                       {item.anchor ? (
                         <Link
-                          key={item.name}
                           href={item.href}
                           to={item.to}
                           spy={true}
@@ -116,7 +107,6 @@ function Navbar() {
                           aria-current={item.current ? 'page' : undefined}
                         >
                           <Disclosure.Button
-                            key={item.name}
                             as="a"
                             href={item.href}
                             className={'block px-3 font-bold rounded-md text-lg'}
@@ -126,10 +116,11 @@ function Navbar() {
                           </Disclosure.Button>
                         </Link>
                       ) : (
-                        <NextLink href={item.href}>
+                        <NextLink
+                          href={item.href}
+                        >
                           <a target='_top' className='text-primary px-3 py-2 rounded-md text-md font-semibold tracking-widest'>
                             <Disclosure.Button
-                              key={item.name}
                               as="a"
                               href={item.href}
                               className={'block px-3 font-bold rounded-md text-lg'}
@@ -140,7 +131,7 @@ function Navbar() {
                           </a>
                         </NextLink>
                       )}
-                    </>
+                    </div>
                   ))}
                 </div>
               </Disclosure.Panel>
