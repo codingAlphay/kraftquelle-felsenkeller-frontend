@@ -16,9 +16,14 @@ body {
   color: inherit;
   text-decoration: none;
 }
+@media (min-width: 768px) {
+  .hero__clip {
+    top: 144px;
+  }
+}
 
-.hero__clip {
-  top: 144px;
+.hero__clip video {
+  object-fit: cover;
 }
 
 .subhero__slider-content {

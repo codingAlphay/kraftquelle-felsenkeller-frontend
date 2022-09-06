@@ -2,6 +2,7 @@ import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import HeaderBlock from '../components/HeaderBlock'
 import ContentBlock from '../components/ContentBlock'
+import Footer from '../components/Footer'
 
 export default function Home() {
   
@@ -20,8 +21,8 @@ export default function Home() {
       <div className='content__container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <ContentBlock/>
         <ContactBlock/>
+        <Footer/>
       </div>
-      <div></div>
     </>
   )
 }

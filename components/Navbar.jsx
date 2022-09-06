@@ -62,7 +62,7 @@ function Navbar() {
                   </div>
                   <div className='navbar__backtohotel relative flex items-center order-first md:order-none animate-fade'> 
                     <NextLink href="https://www.felsenkeller.at/de/index.html">
-                        <a rel="noreferrer" className='flex'>
+                        <a target="_blank" rel="noreferrer" className='flex'>
                           <div className="hidden lg:block animate-fade' flex-shrink-0 px-3 py-1 md:px-4 md:py-2 text-primary hover:bg-transparent font-bold tracking-wide rounded-md cursor-pointer transition ease-out">
                               ZUM FELSENKELLER
                           </div>
@@ -70,7 +70,7 @@ function Navbar() {
                         </a>
                     </NextLink>
                     <NextLink href="https://www.felsenkeller.at/de/index.html">
-                      <a rel="noreferrer" className='order-first mr-4 md:mr-0 md:hidden animate-fade'>
+                      <a target="_blank" rel="noreferrer" className='order-first mr-4 md:mr-0 md:hidden animate-fade'>
                         <div className="animate-wiggle md:hidden flex-shrink-0 p-2 bg-primary text-white font-bold tracking-widest rounded-md transition ease-out hover:scale-110 duration-300">
                           <img src="./hotel_mobile.svg" className="w-5" alt="" />
                         </div>

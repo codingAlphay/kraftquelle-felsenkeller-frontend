@@ -7,7 +7,7 @@ export default function HeaderWrapper() {
     const HeroClip = dynamic(
         () => import('./HeroClip'),
         { ssr: false }
-      )
+    )
 
     return (
         <div className="header__wrapper relative w-full h-screen bg-white">
