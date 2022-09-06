@@ -2,7 +2,7 @@ import mail from '@sendgrid/mail';
 
 mail.setApiKey(process.env.SENDGRID_API_KEY)
 
-export default function (req, res) {
+export default async function Mailer (req, res) {
     const body = JSON.parse(req.body)
     
     const message = `
@@ -21,7 +21,7 @@ export default function (req, res) {
         text: message,
         html: message.replace(/\r\n/g, '<br>')
     }
-
-    mail.send(data)
+    if (res == null)
+    await mail.send(awaitdata)
     res.status(200).json({status:'Ok'})
 }
