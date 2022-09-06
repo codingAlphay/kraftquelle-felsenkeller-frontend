@@ -21,7 +21,6 @@ export default async function Mailer (req, res) {
         text: message,
         html: message.replace(/\r\n/g, '<br>')
     }
-    if (res == null)
     await mail.send(awaitdata)
     res.status(200).json({status:'Ok'})
 }
