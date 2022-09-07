@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Link } from 'react-scroll'
@@ -18,7 +19,7 @@ function classNames(...classes) {
 function Navbar() {
 
   return (
-      <div className="navbar w-full fixed z-10 bg-secondary dark:bg-primary">
+      <div className="navbar w-full fixed z-10 bg-white">
         <Disclosure as="nav">
           {({ open }) => (
             <div className="py-4">
@@ -42,16 +43,16 @@ function Navbar() {
                               smooth={true}
                               offset={-80}
                               duration={500}
-                              className={'px-4 font-bold text-primary dark:text-secondary rounded-md relative text-xl tracking-wide navbar-element'}
+                              className={'px-4 font-bold rounded-md relative text-xl tracking-wide navbar-element'}
                               aria-current={item.current ? 'page' : undefined}
                             >
                               {item.name}
-                              <div className='absolute -bottom-2 transition ease-out duration-300 w-8 h-0.5 bg-primary dark:bg-secondary'/>
+                              <div className='absolute -bottom-2 transition ease-out duration-300 w-8 h-0.5 bg-primary'/>
                             </Link>
                             ) : (
                               <NextLink href={item.href}>
-                                <a target='_top' rel="noreferrer" className='px-4 text-primary dark:text-secondary font-bold rounded-md relative text-xl tracking-wide navbar-element'>{item.name}
-                                <div className='absolute -bottom-2 transition ease-out duration-300 w-8 h-0.5 bg-primary dark:bg-secondary'/></a>
+                                <a target='_top' rel="noreferrer" className='px-4 text-primary font-bold rounded-md relative text-xl tracking-wide navbar-element'>{item.name}
+                                <div className='absolute -bottom-2 transition ease-out duration-300 w-8 h-0.5 bg-primary'/></a>
                               </NextLink>
                             )}
                           </div>
@@ -62,11 +63,10 @@ function Navbar() {
                   <div className='navbar__backtohotel relative flex items-center order-first md:order-none animate-fade'> 
                     <NextLink href="https://www.felsenkeller.at/de/index.html">
                         <a target="_blank" rel="noreferrer" className='flex'>
-                          <div className="hidden lg:block animate-fade' flex-shrink-0 px-3 py-1 md:px-4 md:py-2 text-primary dark:text-secondary hover:bg-transparent font-bold tracking-wide rounded-md cursor-pointer transition ease-out">
+                          <div className="hidden lg:block animate-fade' flex-shrink-0 px-3 py-1 md:px-4 md:py-2 text-primary hover:bg-transparent font-bold tracking-wide rounded-md cursor-pointer transition ease-out">
                               ZUM FELSENKELLER
                           </div>
-                          <img src="./hotel.svg" className="w-5 hidden md:dark:hidden" alt="" />
-                          <img src="./hotel_mobile.svg" className="w-5 hidden md:dark:block" alt="" />
+                          <img src="./hotel.svg" className="w-5 hidden md:block" alt="" />
                         </a>
                     </NextLink>
                     <NextLink href="https://www.felsenkeller.at/de/index.html">

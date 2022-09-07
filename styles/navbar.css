@@ -38,12 +38,3 @@
         left: -5px;
     }   
 }
-
-@media (prefers-color-scheme: dark) {
-    .navbar-element div::after {
-        content: url('arrow-r-s.svg');
-    }
-    .navbar__backtohotel::after {
-        content: url('arrow-r-s.svg');
-    }
-}
