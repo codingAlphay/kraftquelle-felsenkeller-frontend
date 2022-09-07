@@ -10,7 +10,7 @@ export default function HeaderWrapper() {
     )
 
     return (
-        <div className="header__wrapper relative w-full h-screen bg-white">
+        <div className="header__wrapper relative w-full h-screen bg-secondary dark:bg-primary">
             <Navbar/>
             <HeroClip/>
             <SubHeroSlider/>
