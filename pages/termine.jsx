@@ -1,8 +1,16 @@
 import NextLink from "next/link"
 import Head from "next/head";
 import LogoConstructor from "../components/LogoConstructor"
+import dynamic from "next/dynamic";
+import Footer from "../components/Footer";
 
-export default function Termine() {
+export default function Termine({ appointmentCal, appointments }) {
+
+    const TerminBlock = dynamic(
+        () => import('../components/Terminblock'),
+        { ssr: false }
+      )
+
     return (
         <>
             <Head>
@@ -11,7 +19,7 @@ export default function Termine() {
             <div className='max-w-7xl text-center mx-auto px-4 sm:px-6 lg:px-8'>
                 <div className='py-8 flex justify-center'>
                     <NextLink href="/">
-                        <a target='_top' rel="noreferrer"><LogoConstructor/></a>
+                        <a target='_top' rel="noreferrer"><LogoConstructor /></a>
                     </NextLink>
                 </div>
                 <div className='mt-16'>
@@ -22,12 +30,34 @@ export default function Termine() {
                 <div className="mb-16 flex flex-col justify-center items-center" data-aos="fade-up" data-aos-delay="900">
                     <h1 className="text-5xl xs:text-5xl sm:text-6xl md:text-7xl xl:text-8xl pointer-events-none text-primary font-bold text-center" data-aos="fade-up">Termine</h1>
                 </div>
-                <div className="w-full h-48 bg-secondary rounded-xl flex justify-center items-center" data-aos="fade-up" data-aos-delay="900">
-                    <div className="uppercase font-bold">
-                        Terminübersichtsblock
-                    </div>
+                
+                <div className="max-w-xl mx-auto bg-secondary rounded-xl flex justify-center items-center font-bold" data-aos="fade-up" data-aos-delay="900">
+                    <TerminBlock appointmentCal={appointmentCal} appointmentss={appointments}   />
                 </div>
             </div>
+            <Footer/>
         </>
     );
+}
+
+
+export async function getStaticProps() {
+
+    const baseURL = "http://localhost:1337";
+
+    const [appointmentCalendarRes, appointmentsRes ] = await Promise.all([
+        fetch(baseURL + '/api/termin-kalender'),
+        fetch(baseURL + '/api/termines'),
+    ]);
+
+    const { data: appointmentCal } = await appointmentCalendarRes.json();
+    const { data: appointments } = await appointmentsRes.json();
+
+    return {
+        props: {
+            appointmentCal,
+            appointments
+        },
+        revalidate: 10,
+    };
 }

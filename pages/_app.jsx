@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import '../styles/fonts.css'
 import '../styles/navbar.css'
+import '../styles/calendar.css'
 
 import { useEffect } from "react";
 import Head from 'next/head'

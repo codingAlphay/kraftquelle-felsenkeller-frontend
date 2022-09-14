@@ -1,6 +1,6 @@
 import NextLink from 'next/link'
 
-export default function ContactBlock() {
+export default function ContactBlock({data}) {
     
     async function handleOnSubmit(e) {
         e.preventDefault();
@@ -19,7 +19,7 @@ export default function ContactBlock() {
 
     return (
         <>
-            <div className="py-16 max-w-xl mx-auto md:py-24 lg:py-32" id="contact">
+            <div className="pt-16 max-w-xl mx-auto md:pt-24 lg:pt-32" id="contact">
                 {/*HEADER*/}
                 <h1 className="col-span-5 text-5xl xs:text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-primary font-bold text-center" data-aos="fade-up">Kontakt</h1>
                 {/*CONTACTFORM*/}

@@ -11,7 +11,7 @@ export default async function Mailer (req, res) {
         Telefon: ${body.phone}\r\n
         Nachricht: ${body.textarea}\r\n
     `;
-
+    
     const name = `${body.first_name} ${body.last_name}\r\n`;
 
     const data = {
@@ -23,5 +23,4 @@ export default async function Mailer (req, res) {
     }
 
     await mail.send(data)
-    res.status(200).json({status:'Ok'})
 }

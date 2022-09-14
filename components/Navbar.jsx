@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Link } from 'react-scroll'
@@ -6,8 +5,8 @@ import NextLink from 'next/link'
 import Logo from './LogoConstructor'
 
 const navigation = [
-  { name: 'Kraftquelle', href: '#kraftquelle', to: 'kraftquelle', current: false, anchor: true },
-  { name: 'Wirkung', href: '#wirkung', to: 'wirkung', current: false, anchor: true },
+  { name: 'Kraftquelle', href: '#Kraftquelle', to: 'Kraftquelle', current: false, anchor: true },
+  { name: 'Wirkung', href: '#Wirkung', to: 'Wirkung', current: false, anchor: true },
   { name: 'Kontakt', href: '#contact', to: 'contact', current: false, anchor: true },
   { name: 'Termine', href: '/termine', to: '', current: false, anchor: false },
 ]
@@ -19,7 +18,7 @@ function classNames(...classes) {
 function Navbar() {
 
   return (
-      <div className="navbar w-full fixed z-10 bg-white">
+      <div className="navbar w-full fixed z-10 bg-secondary">
         <Disclosure as="nav">
           {({ open }) => (
             <div className="py-4">
@@ -32,7 +31,7 @@ function Navbar() {
                       </NextLink>
                     </div>
                     <div className="hidden md:block">
-                      <div className="ml-10 flex items-baseline space-x-4 animate-fade">
+                      <div className="ml-10 flex space-x-4 animate-fade">
                         {navigation.map((item) => (
                           <div key={item.name}>
                             {item.anchor ? (
@@ -47,12 +46,17 @@ function Navbar() {
                               aria-current={item.current ? 'page' : undefined}
                             >
                               {item.name}
-                              <div className='absolute -bottom-2 transition ease-out duration-300 w-8 h-0.5 bg-primary'/>
+                              <div className='absolute -bottom-2 transition ease-out duration-300 w-8 h-0.5 bg-primary navbar-element-tile'/>
                             </Link>
                             ) : (
                               <NextLink href={item.href}>
-                                <a target='_top' rel="noreferrer" className='px-4 text-primary font-bold rounded-md relative text-xl tracking-wide navbar-element'>{item.name}
-                                <div className='absolute -bottom-2 transition ease-out duration-300 w-8 h-0.5 bg-primary'/></a>
+                                <a target='_top' rel="noreferrer" className='px-4 flex text-primary font-bold rounded-md relative text-xl tracking-wide navbar-element'>
+                                  <div className='flex'>
+                                    <img src="./cal.svg" className=" w-5 mr-2" alt="" />
+                                    {item.name}
+                                  </div>
+                                  <div className='absolute -bottom-2 transition ease-out duration-300 w-8 h-0.5 bg-primary navbar-element-tile'/>
+                                </a>
                               </NextLink>
                             )}
                           </div>

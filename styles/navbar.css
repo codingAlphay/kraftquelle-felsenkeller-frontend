@@ -1,9 +1,9 @@
-.navbar-element div {
+.navbar-element>.navbar-element-tile {
     right: 20px;
     transition: .5s;
 }
 
-.navbar-element div::after {
+.navbar-element>.navbar-element-tile::after {
     content: url('arrow-r.svg');
     height: 7px;
     width: 9px;
@@ -14,12 +14,25 @@
     opacity: 0;
 }
 
-.navbar-element:hover div {
+.navbar-element:hover .navbar-element-tile {
     right: 0;
 }
 
-.navbar-element:hover div::after {
+.navbar-element:hover .navbar-element-tile::after {
     opacity: 1;
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(-3deg);
+    }
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+.navbar-element:hover img {
+    animation: wiggle 1s ease-in-out infinite;
 }
 
 @media (min-width: 1024px) {
