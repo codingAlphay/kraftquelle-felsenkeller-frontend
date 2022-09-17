@@ -226,7 +226,7 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                                                 <h2 className="mt-8 text-sm font-bold text-left text-secondary uppercase tracking-widest">Zahlung</h2>
                                                 <h2 className="mb-2 text-xs font-normal text-left text-secondary uppercase tracking-widest leading-5">Die Zahlung erfolgt vor ort im Felsenkeller.</h2>
                                                 <div className="flex items-center mt-8">
-                                                    <p className="text-xs font-normal text-left text-secondary uppercase tracking-widest leading-5">Mit dem Bestätigen des Knopfes "Reservieren" erlauben Sie uns gemäß unseren <NextLink href="/datenschutz"><a rel="noreferrer" className="hover:text-gray-500 underline underline-offset-4">Datenschutzrichtlinien</a></NextLink> die Verarbeitung ihrer Daten.</p>
+                                                    <p className="text-xs font-normal text-left text-secondary uppercase tracking-widest leading-5">Mit dem Bestätigen des Knopfes &quot;Reservieren&quot; erlauben Sie uns gemäß unseren <NextLink href="/datenschutz"><a rel="noreferrer" className="hover:text-gray-500 underline underline-offset-4">Datenschutzrichtlinien</a></NextLink> die Verarbeitung ihrer Daten.</p>
                                                 </div>
                                             </div>
                                         </div>
