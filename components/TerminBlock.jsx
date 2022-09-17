@@ -128,19 +128,25 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                         />
                     </div>
                     {getCalDate() == JSON.stringify(new Date()).slice('1', '11') ? (
-                        <>
-                            <div className="text-center text-lg my-8">
-                                Ihr gewählter Termin muss minestens einen Tag in der Zukunft liegen.
+                        <>  
+                            <div className="text-center w-4/6 text-lg my-6 text-primary transition ease-in-out hover:-translate-y-1 duration-700">
+                                <div className="pointer-events-none">
+                                    <h1 className="text-7xl mb-2">!</h1>
+                                    Ihr gewählter Termin muss minestens einen Tag in der Zukunft liegen.
+                                </div>
                             </div>
                         </>
                     ) : (
 
                         <>
                             {isBlocked(getCalDate('de')) ? (
-                                <div className="text-center text-lg my-8">
-                                    <ReactMarkdown>
-                                        {blockdays.attributes.BlockierterTerminText}
-                                    </ReactMarkdown>
+                                <div className="text-center text-lg my-6 text-primary transition ease-in-out hover:-translate-y-1 duration-700">
+                                    <div className="pointer-events-none">
+                                        <h1 className="text-7xl mb-2 ">!</h1>
+                                        <ReactMarkdown>
+                                            {blockdays.attributes.BlockierterTerminText}
+                                        </ReactMarkdown>
+                                    </div>
                                 </div>
                             ) : (
                                 <>
