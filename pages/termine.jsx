@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 export default function Termine({ appointmentCal, appointments, blockdays }) {
 
     const TerminBlock = dynamic(
-        () => import('../components/Terminblock'),
+        () => import('../components/TerminBlock'),
         { ssr: false }
       )
 
