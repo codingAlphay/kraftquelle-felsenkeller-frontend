@@ -32,7 +32,7 @@ export default function Home({infoblock}) {
 
 export async function getStaticProps() {
 
-  const baseURL = "http://localhost:1337";
+  const baseURL = process.env.BACKEND_URL;
 
   const [infoBlockRes, ] = await Promise.all([
     fetch(baseURL + '/api/infoblocks?sort[0]=Position&populate=*')

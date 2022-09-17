@@ -4,7 +4,7 @@ import LogoConstructor from "../components/LogoConstructor"
 import dynamic from "next/dynamic";
 import Footer from "../components/Footer";
 
-export default function Termine({ appointmentCal, appointments }) {
+export default function Termine({ appointmentCal, appointments, blockdays }) {
 
     const TerminBlock = dynamic(
         () => import('../components/Terminblock'),
@@ -32,7 +32,7 @@ export default function Termine({ appointmentCal, appointments }) {
                 </div>
                 
                 <div className="max-w-xl mx-auto bg-secondary rounded-xl flex justify-center items-center font-bold" data-aos="fade-up" data-aos-delay="900">
-                    <TerminBlock appointmentCal={appointmentCal} appointmentss={appointments}   />
+                    <TerminBlock appointmentCal={appointmentCal} appointmentss={appointments} blockdays={blockdays}  />
                 </div>
             </div>
             <Footer/>
@@ -43,20 +43,23 @@ export default function Termine({ appointmentCal, appointments }) {
 
 export async function getStaticProps() {
 
-    const baseURL = "http://localhost:1337";
+    const baseURL = process.env.BACKEND_URL;
 
-    const [appointmentCalendarRes, appointmentsRes ] = await Promise.all([
+    const [appointmentCalendarRes, appointmentsRes, blockRes ] = await Promise.all([
         fetch(baseURL + '/api/termin-kalender'),
         fetch(baseURL + '/api/termines'),
+        fetch(baseURL + '/api/termin-blockaden')
     ]);
 
     const { data: appointmentCal } = await appointmentCalendarRes.json();
     const { data: appointments } = await appointmentsRes.json();
+    const { data: blockdays } = await blockRes.json();
 
     return {
         props: {
             appointmentCal,
-            appointments
+            appointments,
+            blockdays
         },
         revalidate: 10,
     };

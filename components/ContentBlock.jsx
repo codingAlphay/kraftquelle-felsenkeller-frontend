@@ -1,6 +1,7 @@
 import ReactMarkdown from "react-markdown";
 
 export default function ContentWrapper({data}) {
+    const backendURL = process.env.BACKEND_URL
     return (
         <>
             {data &&
@@ -16,7 +17,7 @@ export default function ContentWrapper({data}) {
                             {/*TEXT & IMG BLOCK*/}
                             <div className='grid lg:grid-cols-11 gap-8 justify-center'>
                                 <div className='col-span-6 transition ease-in-out hover:-translate-y-2 duration-700 order-last lg:order-first'>
-                                    <img src={`http://localhost:1337`+infoblock.attributes.Bild.data.attributes.url} alt="kraftquelle felsenkeller kufstein" className="w-full " data-aos="fade-up" />
+                                    <img src={backendURL+infoblock.attributes.Bild.data.attributes.url} alt="kraftquelle felsenkeller kufstein" className="w-full " data-aos="fade-up" />
                                 </div>
                                 <div className='inline-flex flex-col my-auto col-span-5'>
                                     <div className='w-16 h-2 bg-primary' data-aos="fade-up" />
@@ -46,7 +47,7 @@ export default function ContentWrapper({data}) {
                                     </p>
                                 </div>
                                 <div className='col-span-6 transition ease-in-out hover:-translate-y-2 duration-700'>
-                                    <img src={`http://localhost:1337`+infoblock.attributes.Bild.data.attributes.url} alt="kraftquelle felsenkeller kufstein" className="w-full" data-aos="fade-up" />
+                                    <img src={backendURL+infoblock.attributes.Bild.data.attributes.url} alt="kraftquelle felsenkeller kufstein" className="w-full" data-aos="fade-up" />
                                 </div>
                             </div>
                         </div>
