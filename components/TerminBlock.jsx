@@ -91,6 +91,7 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
             }
         }
     }
+
     return (
         <div className="flex flex-col justify-center items-center">
             {booked ? (
@@ -115,8 +116,8 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                     </div>
                 </>
             ) : (
-                <>  
-                    <h1 className="text-2xl mb-4 font-bold text-center text-primary" >Datum</h1>
+                <>
+                    <h1 className="text-2xl mb-4 font-bold text-center text-primary">Datum</h1>
                     <div >
                         <Calendar
                             onChange={onChange}
@@ -126,57 +127,68 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                             maxDate={maxdate}
                         />
                     </div>
-                    {isBlocked(getCalDate('de')) ? (
+                    {getCalDate() == JSON.stringify(new Date()).slice('1', '11') ? (
                         <>
                             <div className="text-center text-lg my-8">
-                                <ReactMarkdown>
-                                    {blockdays.attributes.BlockierterTerminText}
-                                </ReactMarkdown>
+                                Ihr gewählter Termin muss minestens einen Tag in der Zukunft liegen.
                             </div>
                         </>
                     ) : (
+
                         <>
-                            <div className='w-full mt-8 mb-4 h-[1px] bg-gray-300' />
-                            <h1 className="text-2xl mb-4 font-bold text-center text-primary" >Uhrzeit</h1>
-                            <div className="grid gap-6 grid-cols-3 md:grid-cols-5 justify-center" >
-                                {appointments.map((appointment) => (
-                                    <div
-                                        key={appointment}
-                                        className="inline-flex">
-                                        {isBooked(appointment.replace('"', '')) ? (
-                                            <button
-                                                className={`py-3 px-4 rounded-md text-secondary bg-gray-300`}
-                                                value={appointment.replace('"', '')}
-                                            >
-                                                <div>
-                                                    {appointment.replace('"', '')}
-                                                </div>
-                                            </button>
-                                        ) : (
-                                            <Link
-                                                to='contactform'
-                                                href='#contactform'
-                                                spy={true}
-                                                smooth={true}
-                                                offset={-80}
-                                                duration={500}
-                                                delay={150}
-                                            >
-                                                <button
-                                                    key={appointment}
-                                                    className={`py-3 px-4 rounded-md transition ease-out hover:scale-110 text-secondary duration-300 ${isSelect(appointment.replace('"', '')) ? 'bg-gray-500 outline ring-primary ring-4' : 'bg-primary'}`}
-                                                    onClick={() => setDate(appointment.replace('"', ''))}
-                                                    value={appointment.replace('"', '')}
-                                                >
-                                                    <div>
-                                                        {appointment.replace('"', '')}
-                                                    </div>
-                                                </button>
-                                            </Link>
-                                        )}
+                            {isBlocked(getCalDate('de')) ? (
+                                <div className="text-center text-lg my-8">
+                                    <ReactMarkdown>
+                                        {blockdays.attributes.BlockierterTerminText}
+                                    </ReactMarkdown>
+                                </div>
+                            ) : (
+                                <>
+                                    <div className='w-full mt-8 mb-4 h-[1px] bg-gray-300' />
+                                    <h1 className="text-2xl mb-4 font-bold text-center text-primary">Uhrzeit</h1>
+                                    <div className="grid gap-6 grid-cols-3 md:grid-cols-5 justify-center">
+                                        {appointments.map((appointment) => (
+                                            <div
+                                                key={appointment}
+                                                className="inline-flex">
+                                                <>
+                                                    {isBooked(appointment.replace('"', '')) ? (
+                                                        <button
+                                                            className={`py-3 px-4 rounded-md text-secondary bg-gray-300`}
+                                                            value={appointment.replace('"', '')}
+                                                        >
+                                                            <div>
+                                                                {appointment.replace('"', '')}
+                                                            </div>
+                                                        </button>
+                                                    ) : (
+                                                        <Link
+                                                            to='contactform'
+                                                            href='#contactform'
+                                                            spy={true}
+                                                            smooth={true}
+                                                            offset={-80}
+                                                            duration={500}
+                                                            delay={150}
+                                                        >
+                                                            <button
+                                                                key={appointment}
+                                                                className={`py-3 px-4 rounded-md transition ease-out hover:scale-110 text-secondary duration-300 ${isSelect(appointment.replace('"', '')) ? 'bg-gray-500 outline ring-primary ring-4' : 'bg-primary'}`}
+                                                                onClick={() => setDate(appointment.replace('"', ''))}
+                                                                value={appointment.replace('"', '')}
+                                                            >
+                                                                <div>
+                                                                    {appointment.replace('"', '')}
+                                                                </div>
+                                                            </button>
+                                                        </Link>
+                                                    )}
+                                                </>
+                                            </div>
+                                        ))}
                                     </div>
-                                ))}
-                            </div>
+                                </>
+                            )}
                         </>
                     )}
                     {isSet() ?
