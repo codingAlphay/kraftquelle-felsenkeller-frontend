@@ -7,12 +7,12 @@ export default function Footer() {
             <LogoConstructor/>
             <div className='flex justify-center font-bold my-4'>
                 <NextLink href="/impressum">
-                    <a className='mx-2 text-primary hover:text-gray-500'>
+                    <a className='mx-2 text-primary hover:text-gray-500 animate-fade'>
                         Impressum
                     </a>
                 </NextLink>
                 <NextLink href="/impressum">
-                    <a className='mx-2 text-primary hover:text-gray-500'>
+                    <a className='mx-2 text-primary hover:text-gray-500 animate-fade'>
                         Datenschutz
                     </a>
                 </NextLink>
