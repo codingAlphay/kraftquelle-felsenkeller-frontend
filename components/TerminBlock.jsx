@@ -7,7 +7,6 @@ import ReactMarkdown from "react-markdown";
 
 export default function TerminBlock({ appointmentCal, appointmentss, blockdays }) {
 
-    const backendURL = process.env.BACKEND_URL
     const week = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag']
 
     const [value, onChange] = useState(new Date());
@@ -61,7 +60,7 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
         })
         const finalappointment = new Date(getCalDate() + ' ' + selected + ':00')
 
-        await axios.post(backendURL+"/api/termines", {
+        await axios.post((process.env.BACKEND_URL)+"/api/termines", {
             data: {
                 Vorname: formData.first_name,
                 Nachname: formData.last_name,
