@@ -60,7 +60,7 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
         })
         const finalappointment = new Date(getCalDate() + ' ' + selected + ':00')
 
-        await axios.post((process.env.BACKEND_URL)+"/api/termines", {
+        await axios.post("https://kraftquelle-felsenkeller-backend.onrender.com/api/termines", {
             data: {
                 Vorname: formData.first_name,
                 Nachname: formData.last_name,
@@ -116,8 +116,8 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                 </>
             ) : (
                 <>  
-                    <h1 className="text-2xl mb-4 font-bold text-center text-primary">Datum</h1>
-                    <div data-aos="fade-up">
+                    <h1 className="text-2xl mb-4 font-bold text-center text-primary" >Datum</h1>
+                    <div >
                         <Calendar
                             onChange={onChange}
                             onClickDay={() => setDate(null)}
@@ -137,8 +137,8 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                     ) : (
                         <>
                             <div className='w-full mt-8 mb-4 h-[1px] bg-gray-300' />
-                            <h1 className="text-2xl mb-4 font-bold text-center text-primary">Uhrzeit</h1>
-                            <div className="grid gap-6 grid-cols-3 md:grid-cols-5 justify-center">
+                            <h1 className="text-2xl mb-4 font-bold text-center text-primary" >Uhrzeit</h1>
+                            <div className="grid gap-6 grid-cols-3 md:grid-cols-5 justify-center" >
                                 {appointments.map((appointment) => (
                                     <div
                                         key={appointment}
