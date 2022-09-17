@@ -19,12 +19,12 @@ export default function Termine({ appointmentCal, appointments, blockdays }) {
             <div className='max-w-7xl text-center mx-auto px-4 sm:px-6 lg:px-8'>
                 <div className='py-8 flex justify-center'>
                     <NextLink href="/">
-                        <a target='_top' rel="noreferrer"><LogoConstructor /></a>
+                        <a><LogoConstructor /></a>
                     </NextLink>
                 </div>
                 <div className='mt-16'>
                     <NextLink href="/">
-                        <a target='_top' rel="noreferrer"><p className='animate-fade tracking-wide text-xl font-bold hover:text-primary' data-aos="fade-up" data-aos-delay="900" >← Zurück zur Startseite</p></a>
+                        <a><p className='animate-fade tracking-wide text-xl font-bold hover:text-primary' data-aos="fade-up" data-aos-delay="900" >← Zurück zur Startseite</p></a>
                     </NextLink>
                 </div>
                 <div className="mb-16 flex flex-col justify-center items-center" data-aos="fade-up" data-aos-delay="900">
