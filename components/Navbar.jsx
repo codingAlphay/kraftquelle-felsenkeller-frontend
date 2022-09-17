@@ -50,7 +50,7 @@ function Navbar() {
                             </Link>
                             ) : (
                               <NextLink href={item.href}>
-                                <a target='_top' rel="noreferrer" className='px-4 flex text-primary font-bold rounded-md relative text-xl tracking-wide navbar-element'>
+                                <a className='px-4 flex text-primary font-bold rounded-md relative text-xl tracking-wide navbar-element'>
                                   <div className='flex'>
                                     <img src="./cal.svg" className=" w-5 mr-2" alt="" />
                                     {item.name}
