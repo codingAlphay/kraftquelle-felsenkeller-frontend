@@ -91,17 +91,6 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
             }
         }
     }
-
-    function selectInput() {
-        useEffect(() => {
-            new Promise(resolve => setTimeout(resolve, 1500));
-            //fix this
-            document.getElementById('first_name').active()
-            document.getElementById('first_name').select()
-            console.log("gmacht")
-          }, []);
-    }
-
     return (
         <div className="flex flex-col justify-center items-center">
             {booked ? (
@@ -153,8 +142,7 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                                 {appointments.map((appointment) => (
                                     <div
                                         key={appointment}
-                                        className="inline-flex"
-                                        onClick={selectInput()}>
+                                        className="inline-flex">
                                         {isBooked(appointment.replace('"', '')) ? (
                                             <button
                                                 className={`py-3 px-4 rounded-md text-secondary bg-gray-300`}
