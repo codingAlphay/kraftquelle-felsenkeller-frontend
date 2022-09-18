@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import NextLink from "next/link";
 
-export default function() {
+export default function StickyTermin() {
 
     const [active, setActive] = useState(false)
 
