@@ -2,6 +2,7 @@ import Head from 'next/head'
 import dynamic from 'next/dynamic'
 import HeaderBlock from '../components/HeaderBlock'
 import Footer from '../components/Footer'
+import StickyTermin from '../components/StickyTermin'
 
 export default function Home({infoblock}) {
   
@@ -19,7 +20,7 @@ export default function Home({infoblock}) {
       <Head>
           <title>Kraftquelle Felsenkeller | Atmen Sie wieder auf</title>
       </Head>
-
+        <StickyTermin/>
       <HeaderBlock/>
       <div className='content__container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <ContentBlock data={infoblock}/>
