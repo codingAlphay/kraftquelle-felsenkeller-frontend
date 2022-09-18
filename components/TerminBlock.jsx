@@ -207,19 +207,19 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                                         <div>
                                             <div className="relative z-0 mb-7 w-full group">
                                                 <input type="text" name="first_name" id="first_name" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" " required />
-                                                <label htmlFor="first_name" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Vorname</label>
+                                                <label htmlFor="first_name" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-8 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Vorname</label>
                                             </div>
                                             <div className="relative z-0 mb-7 w-full group">
                                                 <input type="text" name="last_name" id="last_name" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" " required />
-                                                <label htmlFor="last_name" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Nachname</label>
+                                                <label htmlFor="last_name" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-8 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Nachname</label>
                                             </div>
                                             <div className="relative z-0 mb-7 w-full group">
                                                 <input type="tel" name="phone" id="phone" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" " required />
-                                                <label htmlFor="phone" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Telefon</label>
+                                                <label htmlFor="phone" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-8 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Telefon</label>
                                             </div>
                                             <div className="relative z-0 mb-7 w-full group">
                                                 <input type="email" name="email" id="email" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" " required />
-                                                <label htmlFor="email" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Email</label>
+                                                <label htmlFor="email" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-8 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Email</label>
                                             </div>
                                             <div className="relative z-0 mb-7 w-full group">
                                                 <select onChange={(e) => setAmount(e.currentTarget.value)} type="teilnehmer" name="teilnehmer" id="teilnehmer" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" " required>
@@ -228,11 +228,11 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                                                     <option className="text-primary" value="3">3</option>
                                                     <option className="text-primary" value="4">4</option>
                                                 </select>
-                                                <label htmlFor="teilnehmer" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Teilnehmer (15€ p. P.)</label>
+                                                <label htmlFor="teilnehmer" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-8 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Teilnehmer (15€ p. P.)</label>
                                             </div>
                                             <div className="relative z-0 mb-7 w-full group">
                                                 <textarea name="textarea" id="textarea" rows="3" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" "></textarea>
-                                                <label htmlFor="textarea" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Sonstige Bemerkung</label>
+                                                <label htmlFor="textarea" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-8 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Sonstige Bemerkung</label>
                                             </div>
                                         </div>
                                         <div>
@@ -254,7 +254,7 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                                         </div>
 
                                         <div className="md:col-span-2 justify-center justify-self-center">
-                                            <button type="submit" className="text-white bg-primary tracking-widest hover:bg-secondary hover:ring-primary hover:ring-2 hover:text-primary hover:font-bold focus:ring-primary focus:ring-4 focus:outline-none font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2.5 text-center">RESERVIEREN</button>
+                                            <button type="submit" className="text-white bg-primary tracking-widest hover:bg-secondary hover:ring-primary hover:ring-2 hover:text-primary hover:font-bold focus:ring-primary focus:ring-4 focus:outline-none font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2 text-center">RESERVIEREN</button>
                                         </div>
                                     </form>
                                     <div className='text-primary font-bold text-lg text-center hidden' id="contactform-success">
