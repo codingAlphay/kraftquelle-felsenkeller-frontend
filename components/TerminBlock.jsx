@@ -12,6 +12,7 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
     const [value, onChange] = useState(new Date());
     const [selected, setDate] = useState(null);
     const [booked, setBooked] = useState(false);
+    const [teilnehmer, setAmount] = useState(1);
     const day = value.getDay()
     const maxdate = new Date(blockdays.attributes.MaximalDatum)
     let appointments = JSON.stringify(appointmentCal.attributes[week[day]]).split(',')
@@ -204,45 +205,48 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                                 <div className="form__wrapper text-left">
                                     <form className="grid gap-8 grid-cols-1 md:grid-cols-2" onSubmit={doPost} id="contactform">
                                         <div>
-                                            <div className="relative z-0 mb-6 w-full group">
+                                            <div className="relative z-0 mb-7 w-full group">
                                                 <input type="text" name="first_name" id="first_name" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" " required />
-                                                <label htmlFor="first_name" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Vorname</label>
+                                                <label htmlFor="first_name" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Vorname</label>
                                             </div>
-                                            <div className="relative z-0 mb-6 w-full group">
+                                            <div className="relative z-0 mb-7 w-full group">
                                                 <input type="text" name="last_name" id="last_name" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" " required />
-                                                <label htmlFor="last_name" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nachname</label>
+                                                <label htmlFor="last_name" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Nachname</label>
                                             </div>
-                                            <div className="relative z-0 mb-6 w-full group">
+                                            <div className="relative z-0 mb-7 w-full group">
                                                 <input type="tel" name="phone" id="phone" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" " required />
-                                                <label htmlFor="phone" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Telefon</label>
+                                                <label htmlFor="phone" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Telefon</label>
                                             </div>
-                                            <div className="relative z-0 mb-6 w-full group">
+                                            <div className="relative z-0 mb-7 w-full group">
                                                 <input type="email" name="email" id="email" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" " required />
-                                                <label htmlFor="email" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
+                                                <label htmlFor="email" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Email</label>
                                             </div>
-                                            <div className="relative z-0 mb-6 w-full group">
-                                                <select type="teilnehmer" name="teilnehmer" id="teilnehmer" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" " required>
+                                            <div className="relative z-0 mb-7 w-full group">
+                                                <select onChange={(e) => setAmount(e.currentTarget.value)} type="teilnehmer" name="teilnehmer" id="teilnehmer" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" " required>
                                                     <option className="text-primary" value="1">1</option>
                                                     <option className="text-primary" value="2">2</option>
                                                     <option className="text-primary" value="3">3</option>
                                                     <option className="text-primary" value="4">4</option>
                                                 </select>
-                                                <label htmlFor="teilnehmer" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Teilnehmer (bis zu 4 Personen)</label>
+                                                <label htmlFor="teilnehmer" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Teilnehmer (15€ p. P.)</label>
                                             </div>
-                                            <div className="relative z-0 mb-6 w-full group">
+                                            <div className="relative z-0 mb-7 w-full group">
                                                 <textarea name="textarea" id="textarea" rows="3" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" "></textarea>
-                                                <label htmlFor="textarea" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Sonstige Bemerkung</label>
+                                                <label htmlFor="textarea" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Sonstige Bemerkung</label>
                                             </div>
                                         </div>
                                         <div>
                                             <div className="rounded-lg p-4 bg-primary">
                                                 <h1 className="text-2xl font-bold text-left text-secondary">Zusammenfassung</h1>
-                                                <h2 className="mt-8 text-sm font-bold text-left text-secondary uppercase tracking-widest">Datum</h2>
+                                                <h2 className="mt-8 text-sm font-bold text-left text-secondary uppercase tracking-widest">Datum & Uhrzeit</h2>
                                                 <h2 className="text-md font-normal text-left text-secondary uppercase tracking-widest underline underline-offset-[6px]">{getCalDate('de')}</h2>
                                                 <h2 className="mt-8 text-sm font-bold text-left text-secondary uppercase tracking-widest">Uhrzeit</h2>
                                                 <h2 className="text-md font-normal text-left text-secondary uppercase tracking-widest underline underline-offset-[6px]">{selected} Uhr</h2>
-                                                <h2 className="mt-8 text-sm font-bold text-left text-secondary uppercase tracking-widest">Zahlung</h2>
-                                                <h2 className="mb-2 text-xs font-normal text-left text-secondary uppercase tracking-widest leading-5">Die Zahlung erfolgt vor ort im Felsenkeller.</h2>
+                                                
+                                                <h2 className="text-sm mt-8 font-bold text-left text-secondary uppercase tracking-widest">Kosten</h2>
+                                                <p className="text-md font-normal text-left text-secondary tracking-widest underline underline-offset-[6px] inline-flex">{15 * teilnehmer}€</p>
+                                                {console.log(teilnehmer)}
+                                                <h2 className="pl-5 mt-2 text-xs font-normal text-left text-secondary uppercase tracking-widest leading-5 relative"><span className="font-black text-4xl mr-1 absolute -top-[2px] left-0">!</span>Die Zahlung erfolgt vor ort im Felsenkeller.</h2>
                                                 <div className="flex items-center mt-8">
                                                     <p className="text-xs font-normal text-left text-secondary uppercase tracking-widest leading-5">Mit dem Bestätigen des Knopfes &quot;Reservieren&quot; erlauben Sie uns gemäß unseren <NextLink href="/datenschutz"><a rel="noreferrer" className="hover:text-gray-500 underline underline-offset-4">Datenschutzrichtlinien</a></NextLink> die Verarbeitung ihrer Daten.</p>
                                                 </div>
