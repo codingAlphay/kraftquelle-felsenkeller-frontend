@@ -1,7 +1,7 @@
 function LogoConstructor() {
   
     return (
-        <svg className="w-auto h-24 logo z-50" version="1.1" id="Ebene_2_00000141426501200690386250000012876589357698614710_" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168.3 131.7" style={{ enableBackground: `new 0 0 168.3 131.7` }} width="168.3000030517578" height="131.6999969482422" alt="logo">
+        <svg className="w-auto h-24 logo z-30" version="1.1" id="Ebene_2_00000141426501200690386250000012876589357698614710_" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168.3 131.7" style={{ enableBackground: `new 0 0 168.3 131.7` }} width="168.3000030517578" height="131.6999969482422" alt="logo">
             <style type="text/css">
                 .st0{`fill:#2E2D2D;`}
             </style>
