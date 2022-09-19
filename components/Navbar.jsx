@@ -75,7 +75,7 @@ function Navbar() {
                     </NextLink>
                     <NextLink href="https://www.felsenkeller.at/de/index.html">
                       <a target="_blank" rel="noreferrer" className='order-first mr-4 md:mr-0 md:hidden animate-fade'>
-                        <div className="animate-wiggle md:hidden flex-shrink-0 p-2 bg-primary text-white font-bold tracking-widest rounded-md transition ease-out hover:scale-110 duration-300">
+                        <div className="md:hidden flex-shrink-0 p-2 bg-primary text-white font-bold tracking-widest rounded-md transition ease-out hover:scale-110 duration-300">
                           <img src="./hotel_mobile.svg" className="w-5" alt="" />
                         </div>
                       </a>
