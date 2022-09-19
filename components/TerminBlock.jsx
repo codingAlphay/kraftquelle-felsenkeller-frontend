@@ -68,7 +68,8 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                 Teilnehmer: formData.teilnehmer,
                 Email: formData.email,
                 Telefon: formData.phone,
-                DatumUndUhrzeit: finalappointment
+                DatumUndUhrzeit: finalappointment,
+                Anmerkung: formData.textarea
             }
         });
         setBooked(true)
