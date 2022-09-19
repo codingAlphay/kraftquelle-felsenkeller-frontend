@@ -141,7 +141,7 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                     ) : (
 
                         <>
-                            {isBlocked(getCalDate('de')) ? (
+                            {isBlocked(getCalDate('de')) || appointments == 'null' ? (
                                 <div className="text-center text-lg my-6 text-primary transition ease-in-out hover:-translate-y-1 duration-700">
                                     <div className="pointer-events-none">
                                         <h1 className="text-7xl mb-2 ">!</h1>
