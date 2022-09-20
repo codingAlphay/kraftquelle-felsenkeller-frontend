@@ -1,5 +1,5 @@
 import axios from "axios"
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Calendar from 'react-calendar'
 import NextLink from 'next/link'
 import { Link } from 'react-scroll'
@@ -60,7 +60,13 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
             formData[field.name] = field.value;
         })
         const finalappointment = new Date(getCalDate() + ' ' + selected + ':00')
+        const finalappointmentde = getCalDate('de') + ', ' + selected + ' Uhr'
 
+        formData['termin'] = finalappointmentde
+        fetch('/api/terminmailhandler', {
+            method: 'post',
+            body: JSON.stringify(formData),
+        })
         await axios.post("https://kraftquelle-felsenkeller-backend.onrender.com/api/termines", {
             data: {
                 Vorname: formData.first_name,
@@ -246,7 +252,6 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                                                 
                                                 <h2 className="text-sm mt-8 font-bold text-left text-secondary uppercase tracking-widest">Kosten</h2>
                                                 <p className="text-md font-normal text-left text-secondary tracking-widest underline underline-offset-[6px] inline-flex">{15 * teilnehmer}€</p>
-                                                {console.log(teilnehmer)}
                                                 <h2 className="pl-5 mt-2 text-xs font-normal text-left text-secondary uppercase tracking-widest leading-5 relative"><span className="font-black text-4xl mr-1 absolute -top-[2px] left-0">!</span>Die Zahlung erfolgt vor ort im Felsenkeller.</h2>
                                                 <div className="flex items-center mt-8">
                                                     <p className="text-xs font-normal text-left text-secondary uppercase tracking-widest leading-5">Mit dem Bestätigen des Knopfes &quot;Reservieren&quot; erlauben Sie uns gemäß unseren <NextLink href="/datenschutz"><a rel="noreferrer" className="hover:text-gray-500 underline underline-offset-4">Datenschutzrichtlinien</a></NextLink> die Verarbeitung ihrer Daten.</p>
