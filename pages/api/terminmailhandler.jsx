@@ -48,6 +48,11 @@ export default async function Mailer(req, res) {
                 display: block;
                 margin: 13px 0;
                 }
+                @media (prefers-color-scheme: dark) {
+                    #wrapper {
+                        background-color: white;
+                    }
+                }
             </style>
             <!--[if mso]>
                     <noscript>
@@ -92,7 +97,7 @@ export default async function Mailer(req, res) {
             </head>
 
             <body style="word-spacing:normal;background-color:#E7E7E7;">
-            <div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;"> Kraftquelle Reservierungsbestätigung </div>
+            <div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;" id="wrapper"> Kraftquelle Reservierungsbestätigung </div>
             <div style="background-color:#E7E7E7;">
                 <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#ffffff;background-color:#ffffff;width:100%;">
                 <tbody>
