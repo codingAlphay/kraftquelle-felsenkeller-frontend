@@ -173,7 +173,7 @@ export default async function Mailer(req, res) {
                                         <tbody>
                                         <tr>
                                             <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                            <div style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:20px;font-weight:bold;line-height:24px;text-align:left;color:#212b35;">Reservierungsbestätigung für den XX</div>
+                                            <div style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:20px;font-weight:bold;line-height:24px;text-align:left;color:#212b35;">Reservierungsbestätigung für den ${body.termin}</div>
                                             </td>
                                         </tr>
                                         <tr>
