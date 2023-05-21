@@ -75,7 +75,8 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                 Email: formData.email,
                 Telefon: formData.phone,
                 DatumUndUhrzeit: finalappointment,
-                Anmerkung: formData.textarea
+                Anmerkung: formData.textarea,
+                ID: ''
             }
         });
         setBooked(true)
@@ -101,31 +102,31 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
     }
 
     return (
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col items-center justify-center">
             {booked ? (
                 <>
                     <div>
-                        <div className="rounded-lg p-4 bg-primary mb-8">
-                            <div className="text-md font-normal text-left text-secondary tracking-wide">
+                        <div className="p-4 mb-8 rounded-lg bg-primary">
+                            <div className="font-normal tracking-wide text-left text-md text-secondary">
                                 <ReactMarkdown>
                                     {blockdays.attributes.TerminBestaetigungsText}
                                 </ReactMarkdown>
                             </div>
                         </div>
-                        <div className="rounded-lg p-4 bg-primary">
+                        <div className="p-4 rounded-lg bg-primary">
                             <h1 className="text-2xl font-bold text-left text-secondary">Zusammenfassung</h1>
-                            <h2 className="mt-8 text-sm font-bold text-left text-secondary uppercase tracking-widest">Datum</h2>
+                            <h2 className="mt-8 text-sm font-bold tracking-widest text-left uppercase text-secondary">Datum</h2>
                             <h2 className="text-md font-normal text-left text-secondary uppercase tracking-widest underline underline-offset-[6px]">{getCalDate('de')}</h2>
-                            <h2 className="mt-8 text-sm font-bold text-left text-secondary uppercase tracking-widest">Uhrzeit</h2>
+                            <h2 className="mt-8 text-sm font-bold tracking-widest text-left uppercase text-secondary">Uhrzeit</h2>
                             <h2 className="text-md font-normal text-left text-secondary uppercase tracking-widest underline underline-offset-[6px]">{selected} Uhr</h2>
-                            <h2 className="mt-8 text-sm font-bold text-left text-secondary uppercase tracking-widest">Zahlung</h2>
-                            <h2 className="mb-2 text-xs font-normal text-left text-secondary uppercase tracking-widest leading-5">Die Zahlung erfolgt vor ort im Felsenkeller.</h2>
+                            <h2 className="mt-8 text-sm font-bold tracking-widest text-left uppercase text-secondary">Zahlung</h2>
+                            <h2 className="mb-2 text-xs font-normal leading-5 tracking-widest text-left uppercase text-secondary">Die Zahlung erfolgt vor ort im Felsenkeller.</h2>
                         </div>
                     </div>
                 </>
             ) : (
                 <>
-                    <h1 className="text-2xl mb-4 font-bold text-center text-primary">Datum</h1>
+                    <h1 className="mb-4 text-2xl font-bold text-center text-primary">Datum</h1>
                     <div >
                         <Calendar
                             onChange={onChange}
@@ -137,9 +138,9 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                     </div>
                     {getCalDate() == JSON.stringify(new Date()).slice('1', '11') ? (
                         <>  
-                            <div className="text-center w-4/6 text-lg my-6 text-primary transition ease-in-out hover:-translate-y-1 duration-700">
+                            <div className="w-4/6 my-6 text-lg text-center transition duration-700 ease-in-out text-primary hover:-translate-y-1">
                                 <div className="pointer-events-none">
-                                    <h1 className="text-7xl mb-2">!</h1>
+                                    <h1 className="mb-2 text-7xl">!</h1>
                                     Ihr gewählter Termin muss minestens einen Tag in der Zukunft liegen.
                                 </div>
                             </div>
@@ -148,9 +149,9 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
 
                         <>
                             {isBlocked(getCalDate('de')) || appointments == 'null' ? (
-                                <div className="text-center text-lg my-6 text-primary transition ease-in-out hover:-translate-y-1 duration-700">
+                                <div className="my-6 text-lg text-center transition duration-700 ease-in-out text-primary hover:-translate-y-1">
                                     <div className="pointer-events-none">
-                                        <h1 className="text-7xl mb-2 ">!</h1>
+                                        <h1 className="mb-2 text-7xl ">!</h1>
                                         <ReactMarkdown>
                                             {blockdays.attributes.BlockierterTerminText}
                                         </ReactMarkdown>
@@ -159,8 +160,8 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                             ) : (
                                 <>
                                     <div className='w-full mt-8 mb-4 h-[1px] bg-gray-300' />
-                                    <h1 className="text-2xl mb-4 font-bold text-center text-primary">Uhrzeit</h1>
-                                    <div className="grid gap-6 grid-cols-3 md:grid-cols-5 justify-center">
+                                    <h1 className="mb-4 text-2xl font-bold text-center text-primary">Uhrzeit</h1>
+                                    <div className="grid justify-center grid-cols-3 gap-6 md:grid-cols-5">
                                         {appointments.map((appointment) => (
                                             <div
                                                 key={appointment}
@@ -209,26 +210,26 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                         (
                             <>
                                 <div className='w-full my-8 h-[1px] bg-gray-300' />
-                                <div className="form__wrapper text-left">
-                                    <form className="grid gap-8 grid-cols-1 md:grid-cols-2" onSubmit={doPost} id="contactform">
+                                <div className="text-left form__wrapper">
+                                    <form className="grid grid-cols-1 gap-8 md:grid-cols-2" onSubmit={doPost} id="contactform">
                                         <div>
-                                            <div className="relative z-0 mb-7 w-full group">
+                                            <div className="relative z-0 w-full mb-7 group">
                                                 <input type="text" name="first_name" id="first_name" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" " required />
                                                 <label htmlFor="first_name" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-8 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Vorname</label>
                                             </div>
-                                            <div className="relative z-0 mb-7 w-full group">
+                                            <div className="relative z-0 w-full mb-7 group">
                                                 <input type="text" name="last_name" id="last_name" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" " required />
                                                 <label htmlFor="last_name" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-8 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Nachname</label>
                                             </div>
-                                            <div className="relative z-0 mb-7 w-full group">
+                                            <div className="relative z-0 w-full mb-7 group">
                                                 <input type="tel" name="phone" id="phone" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" " required />
                                                 <label htmlFor="phone" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-8 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Telefon</label>
                                             </div>
-                                            <div className="relative z-0 mb-7 w-full group">
+                                            <div className="relative z-0 w-full mb-7 group">
                                                 <input type="email" name="email" id="email" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" " required />
                                                 <label htmlFor="email" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-8 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Email</label>
                                             </div>
-                                            <div className="relative z-0 mb-7 w-full group">
+                                            <div className="relative z-0 w-full mb-7 group">
                                                 <select onChange={(e) => setAmount(e.currentTarget.value)} type="teilnehmer" name="teilnehmer" id="teilnehmer" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" " required>
                                                     <option className="text-primary" value="1">1</option>
                                                     <option className="text-primary" value="2">2</option>
@@ -237,33 +238,33 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                                                 </select>
                                                 <label htmlFor="teilnehmer" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-8 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Teilnehmer (15€ p. P.)</label>
                                             </div>
-                                            <div className="relative z-0 mb-7 w-full group">
+                                            <div className="relative z-0 w-full mb-7 group">
                                                 <textarea name="textarea" id="textarea" rows="3" className="block font-semibold py-2.5 px-0 w-full text-md text-gray-900 bg-transparent border-0 border-b-2 border-gray-400 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer" placeholder=" "></textarea>
                                                 <label htmlFor="textarea" className="font-semibold absolute text-md text-primary duration-300 transform -translate-y-8 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8">Sonstige Bemerkung</label>
                                             </div>
                                         </div>
                                         <div>
-                                            <div className="rounded-lg p-4 bg-primary">
+                                            <div className="p-4 rounded-lg bg-primary">
                                                 <h1 className="text-2xl font-bold text-left text-secondary">Zusammenfassung</h1>
-                                                <h2 className="mt-8 text-sm font-bold text-left text-secondary uppercase tracking-widest">Datum & Uhrzeit</h2>
+                                                <h2 className="mt-8 text-sm font-bold tracking-widest text-left uppercase text-secondary">Datum & Uhrzeit</h2>
                                                 <h2 className="text-md font-normal text-left text-secondary uppercase tracking-widest underline underline-offset-[6px]">{getCalDate('de')}</h2>
-                                                <h2 className="mt-8 text-sm font-bold text-left text-secondary uppercase tracking-widest">Uhrzeit</h2>
+                                                <h2 className="mt-8 text-sm font-bold tracking-widest text-left uppercase text-secondary">Uhrzeit</h2>
                                                 <h2 className="text-md font-normal text-left text-secondary uppercase tracking-widest underline underline-offset-[6px]">{selected} Uhr</h2>
                                                 
-                                                <h2 className="text-sm mt-8 font-bold text-left text-secondary uppercase tracking-widest">Kosten</h2>
+                                                <h2 className="mt-8 text-sm font-bold tracking-widest text-left uppercase text-secondary">Kosten</h2>
                                                 <p className="text-md font-normal text-left text-secondary tracking-widest underline underline-offset-[6px] inline-flex">{15 * teilnehmer}€</p>
-                                                <h2 className="pl-5 mt-2 text-xs font-normal text-left text-secondary uppercase tracking-widest leading-5 relative"><span className="font-black text-4xl mr-1 absolute -top-[2px] left-0">!</span>Die Zahlung erfolgt vor ort im Felsenkeller.</h2>
+                                                <h2 className="relative pl-5 mt-2 text-xs font-normal leading-5 tracking-widest text-left uppercase text-secondary"><span className="font-black text-4xl mr-1 absolute -top-[2px] left-0">!</span>Die Zahlung erfolgt vor ort im Felsenkeller.</h2>
                                                 <div className="flex items-center mt-8">
-                                                    <p className="text-xs font-normal text-left text-secondary uppercase tracking-widest leading-5">Mit dem Bestätigen des Knopfes &quot;Reservieren&quot; erlauben Sie uns gemäß unseren <NextLink href="/datenschutz"><a rel="noreferrer" className="hover:text-gray-500 underline underline-offset-4">Datenschutzrichtlinien</a></NextLink> die Verarbeitung ihrer Daten.</p>
+                                                    <p className="text-xs font-normal leading-5 tracking-widest text-left uppercase text-secondary">Mit dem Bestätigen des Knopfes &quot;Reservieren&quot; erlauben Sie uns gemäß unseren <NextLink href="/datenschutz"><a rel="noreferrer" className="underline hover:text-gray-500 underline-offset-4">Datenschutzrichtlinien</a></NextLink> die Verarbeitung ihrer Daten.</p>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div className="md:col-span-2 justify-center justify-self-center">
-                                            <button type="submit" className="text-white bg-primary tracking-widest hover:bg-secondary hover:ring-primary hover:ring-2 hover:text-primary hover:font-bold focus:ring-primary focus:ring-4 focus:outline-none font-medium rounded-lg text-md w-full sm:w-auto px-5 py-2 text-center">RESERVIEREN</button>
+                                        <div className="justify-center md:col-span-2 justify-self-center">
+                                            <button type="submit" className="w-full px-5 py-2 font-medium tracking-widest text-center text-white rounded-lg bg-primary hover:bg-secondary hover:ring-primary hover:ring-2 hover:text-primary hover:font-bold focus:ring-primary focus:ring-4 focus:outline-none text-md sm:w-auto">RESERVIEREN</button>
                                         </div>
                                     </form>
-                                    <div className='text-primary font-bold text-lg text-center hidden' id="contactform-success">
+                                    <div className='hidden text-lg font-bold text-center text-primary' id="contactform-success">
                                         Wir bedanken uns für Ihre Reservierung! <br />Sie erhalten alle Details zur Reservierung per E-Mail.
                                     </div>
                                 </div>
