@@ -4,6 +4,7 @@ import Calendar from 'react-calendar'
 import NextLink from 'next/link'
 import { Link } from 'react-scroll'
 import ReactMarkdown from "react-markdown";
+const uuid = require('uuid')
 
 export default function TerminBlock({ appointmentCal, appointmentss, blockdays }) {
 
@@ -61,6 +62,7 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
         })
         const finalappointment = new Date(getCalDate() + ' ' + selected + ':00')
         const finalappointmentde = getCalDate('de') + ', ' + selected + ' Uhr'
+        const tokenId = uuid.v4()
 
         formData['termin'] = finalappointmentde
         fetch('/api/terminmailhandler', {
@@ -76,7 +78,7 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                 Telefon: formData.phone,
                 DatumUndUhrzeit: finalappointment,
                 Anmerkung: formData.textarea,
-                ID: ''
+                ID: tokenId
             }
         });
         setBooked(true)
