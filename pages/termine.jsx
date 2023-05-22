@@ -62,6 +62,5 @@ export async function getServerSideProps() {
             appointments,
             blockdays
         },
-        revalidate: 10,
     };
 }
