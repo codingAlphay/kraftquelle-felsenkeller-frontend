@@ -10,28 +10,29 @@ export default function Termine({ appointmentCal, appointments, blockdays }) {
         () => import('../components/TerminBlock'),
         { ssr: false }
       )
-
+    
+    if(appointmentCal, appointments, blockdays)
     return (
         <>
             <Head>
                 <title>Termine | Kraftquelle Felsenkeller</title>
             </Head>
-            <div className='max-w-7xl text-center mx-auto px-4 sm:px-6 lg:px-8'>
-                <div className='py-8 flex justify-center'>
+            <div className='px-4 mx-auto text-center max-w-7xl sm:px-6 lg:px-8'>
+                <div className='flex justify-center py-8'>
                     <NextLink href="/">
                         <a><LogoConstructor /></a>
                     </NextLink>
                 </div>
                 <div className='mt-16'>
                     <NextLink href="/">
-                        <a><p className='tracking-wide text-xl font-bold hover:text-primary' data-aos="fade-up">← Zurück zur Startseite</p></a>
+                        <a><p className='text-xl font-bold tracking-wide hover:text-primary' data-aos="fade-up">← Zurück zur Startseite</p></a>
                     </NextLink>
                 </div>
-                <div className="mb-16 flex flex-col justify-center items-center" data-aos="fade-up">
-                    <h1 className="text-5xl xs:text-5xl sm:text-6xl md:text-7xl xl:text-8xl pointer-events-none text-primary font-bold text-center" data-aos="fade-up">Termine</h1>
+                <div className="flex flex-col items-center justify-center mb-16" data-aos="fade-up">
+                    <h1 className="text-5xl font-bold text-center pointer-events-none xs:text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-primary" data-aos="fade-up">Termine</h1>
                 </div>
                 
-                <div className="max-w-xl mx-auto bg-secondary rounded-xl flex justify-center items-center font-bold" data-aos="fade-up" data-aos-delay="400">
+                <div className="flex items-center justify-center max-w-xl mx-auto font-bold bg-secondary rounded-xl" data-aos="fade-up" data-aos-delay="400">
                     <TerminBlock appointmentCal={appointmentCal} appointmentss={appointments} blockdays={blockdays}  />
                 </div>
             </div>
@@ -41,7 +42,7 @@ export default function Termine({ appointmentCal, appointments, blockdays }) {
 }
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 
     const baseURL = process.env.BACKEND_URL;
 

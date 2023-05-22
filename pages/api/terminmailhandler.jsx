@@ -10,7 +10,7 @@ export default async function Mailer(req, res) {
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
             <head>
-            <title> Kraftquelle Reservierungsbestätigung </title>
+            <title> Kraftquelle Reservierungsanfrage </title>
             <!--[if !mso]><!-->
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <!--<![endif]-->
@@ -97,7 +97,7 @@ export default async function Mailer(req, res) {
             </head>
 
             <body style="word-spacing:normal;background-color:#E7E7E7;">
-            <div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;" id="wrapper"> Kraftquelle Reservierungsbestätigung </div>
+            <div style="display:none;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;" id="wrapper"> Kraftquelle Reservierungsanfrage </div>
             <div style="background-color:#E7E7E7;">
                 <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:#ffffff;background-color:#ffffff;width:100%;">
                 <tbody>
@@ -173,7 +173,7 @@ export default async function Mailer(req, res) {
                                         <tbody>
                                         <tr>
                                             <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                            <div style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:20px;font-weight:bold;line-height:24px;text-align:left;color:#212b35;">Reservierungsbestätigung für den ${body.termin}</div>
+                                            <div style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:20px;font-weight:bold;line-height:24px;text-align:left;color:#212b35;">Reservierungsanfrage für den ${body.termin}</div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -314,7 +314,7 @@ export default async function Mailer(req, res) {
     const data = {
         to: body.email,
         from: 'kraftquelle.felsenkeller@gmail.com',
-        subject: 'Reservierungsbestätigung ' + body.termin,
+        subject: 'Reservierungsanfrage ' + body.termin,
         text: message,
         html: message.replace(/\r\n/g, '<br>')
     }

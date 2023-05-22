@@ -22,7 +22,7 @@ export default function Home({infoblock}) {
       </Head>
         <StickyTermin/>
       <HeaderBlock/>
-      <div className='content__container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+      <div className='px-4 mx-auto content__container max-w-7xl sm:px-6 lg:px-8'>
         <ContentBlock data={infoblock}/>
         <ContactBlock/>
         <Footer/>
@@ -35,7 +35,7 @@ export async function getStaticProps() {
 
   const baseURL = process.env.BACKEND_URL;
 
-  const [infoBlockRes, ] = await Promise.all([
+  const [infoBlockRes ] = await Promise.all([
     fetch(baseURL + '/api/infoblocks?sort[0]=Position&populate=*')
   ]);
 
