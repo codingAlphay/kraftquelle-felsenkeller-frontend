@@ -4,7 +4,7 @@ import HeaderBlock from '../components/HeaderBlock'
 import Footer from '../components/Footer'
 import StickyTermin from '../components/StickyTermin'
 
-export default function Home({infoblock}) {
+export default function Home({infoblock, video}) {
   
   const ContactBlock = dynamic(
     () => import('../components/ContactBlock'),
@@ -22,7 +22,7 @@ export default function Home({infoblock}) {
           <title>Kraftquelle Felsenkeller | Atmen Sie wieder auf</title>
       </Head>
         <StickyTermin/>
-      <HeaderBlock/>
+      <HeaderBlock video={video} />
       <div className='px-4 mx-auto content__container max-w-7xl sm:px-6 lg:px-8'>
         <ContentBlock data={infoblock}/>
         <ContactBlock/>
@@ -36,15 +36,18 @@ export async function getStaticProps() {
 
   const baseURL = process.env.BACKEND_URL;
 
-  const [infoBlockRes ] = await Promise.all([
-    fetch(baseURL + '/api/infoblocks?sort[0]=Position&populate=*')
+  const [infoBlockRes, videoRes ] = await Promise.all([
+    fetch(baseURL + '/api/infoblocks?sort[0]=Position&populate=*'),
+    fetch(baseURL + '/api/Video?populate=*')
   ]);
 
   const { data: infoblock } = await infoBlockRes.json();
+  const { data: video } = await videoRes.json();
 
   return {
       props: {
-        infoblock
+        infoblock,
+        video
       },
       revalidate: 10,
   };

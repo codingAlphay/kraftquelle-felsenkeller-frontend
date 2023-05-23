@@ -1,13 +1,10 @@
 import ReactPlayer from "react-player/lazy"
 
-export default function HeroClip() {
+export default function HeroClip({video}) {
     return (
-        <div className="hero__clip absolute flex h-full md:h-2/3 justify-center items-center overflow-hidden w-full">
+        <div className="absolute flex items-center justify-center w-full h-full overflow-hidden hero__clip md:h-2/3">
             <ReactPlayer
-                url={[
-                    './heroclip.webm',
-                    './heroclip.mp4'
-                ]}
+                url={video.attributes.Video.data.attributes.url}
                 playing={true}
                 muted={true}
                 loop={true}
