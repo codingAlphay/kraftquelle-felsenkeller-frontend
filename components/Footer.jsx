@@ -3,7 +3,7 @@ import NextLink from 'next/link'
 
 export default function Footer() {
     return (
-        <div className='flex flex-col justify-center mt-16 md:mt-32'>
+        <div className='flex flex-col justify-center mt-16 mb-20 sm:mb-0 md:mt-32'>
             <LogoConstructor/>
             <div className='flex justify-center my-4 font-bold'>
                 <NextLink href="/impressum">
