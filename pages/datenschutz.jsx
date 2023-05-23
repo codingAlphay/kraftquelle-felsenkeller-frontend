@@ -25,7 +25,9 @@ export default function Datenschutz({gdpr}) {
                 <div className="flex flex-col items-center justify-center mb-16" data-aos="fade-up" data-aos-delay="900">
                     <h1 className="text-5xl font-bold text-center pointer-events-none xs:text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-primary" data-aos="fade-up">{gdpr.attributes.Titel}</h1>
                     <div className="max-w-5xl my-16 text-lg text-left text-container">
-                        <ReactMarkdown children={gdpr.attributes.Text} remarkPlugins={[remarkGfm]} className="whitespace-pre-wrap"/>
+                        <ReactMarkdown remarkPlugins={[remarkGfm]} className="whitespace-pre-wrap">
+                            {gdpr.attributes.Text}
+                        </ReactMarkdown>
                     </div>
                 </div>
             </div>
