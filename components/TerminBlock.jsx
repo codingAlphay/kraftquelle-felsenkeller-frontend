@@ -62,7 +62,11 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
         const finalappointment = new Date(getCalDate() + ' ' + selected + ':00')
         const finalappointmentde = getCalDate('de') + ', ' + selected + ' Uhr'
 
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', seconds: 'none', hour: '2-digit', minute:'2-digit'};
+        const finalAppointmentString = finalappointment.toLocaleTimeString("de-DE", options) + " Uhr"
+        
         formData['termin'] = finalappointmentde
+
         fetch('/api/terminmailhandler', {
             method: 'post',
             body: JSON.stringify(formData),
@@ -75,6 +79,7 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                 Email: formData.email,
                 Telefon: formData.phone,
                 DatumUndUhrzeit: finalappointment,
+                DatumUndUhrzeitString: finalAppointmentString,
                 Anmerkung: formData.textarea
             }
         });
@@ -86,14 +91,16 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
         let b = appointments
 
         for (var i = 0; i < a.length; i++) {
-            let fixedAppointment = new Date(a[i].attributes.DatumUndUhrzeit)
-            let fixedAppointmentDate = JSON.stringify(fixedAppointment).slice('1', '11')
-            let fixedAppointmentTime = fixedAppointment.toString().slice('16', '21')
-
-            if (getCalDate() == fixedAppointmentDate) {
-                for (var j = 0; j < b.length; j++) {
-                    if (date == fixedAppointmentTime) {
-                        return true;
+            if(a[i].attributes.Bestaetigt == true) {
+                let fixedAppointment = new Date(a[i].attributes.DatumUndUhrzeit)
+                let fixedAppointmentDate = JSON.stringify(fixedAppointment).slice('1', '11')
+                let fixedAppointmentTime = fixedAppointment.toString().slice('16', '21')
+    
+                if (getCalDate() == fixedAppointmentDate) {
+                    for (var j = 0; j < b.length; j++) {
+                        if (date == fixedAppointmentTime) {
+                            return true;
+                        }
                     }
                 }
             }
@@ -264,7 +271,7 @@ export default function TerminBlock({ appointmentCal, appointmentss, blockdays }
                                         </div>
                                     </form>
                                     <div className='hidden text-lg font-bold text-center text-primary' id="contactform-success">
-                                        Wir bedanken uns für Ihre Reservierung! <br />Sie erhalten alle Details zur Reservierung per E-Mail.
+                                        Wir bedanken uns für Ihre Reservierungsanfrage! <br />Sie erhalten alle Details zur Reservierung per E-Mail.
                                     </div>
                                 </div>
                             </>

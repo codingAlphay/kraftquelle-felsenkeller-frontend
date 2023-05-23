@@ -10,19 +10,19 @@ export default function ContentWrapper({data}) {
                     {(infoblock.attributes.Seitenwechsel) ? (
                         <div className="py-16 md:py-24 lg:py-32" key={infoblock.attributes.Titel} id={infoblock.attributes.Titel}>
                             {/*HEADER*/}
-                            <div className='grid lg:grid-cols-11 gap-8 mb-8'>
+                            <div className='grid gap-8 mb-8 lg:grid-cols-11'>
                                 <div className='col-span-6' />
-                                <h1 className="col-span-5 text-5xl xs:text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-primary font-bold" data-aos="fade-up">{infoblock.attributes.Titel}</h1>
+                                <h1 className="col-span-5 text-5xl font-bold xs:text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-primary" data-aos="fade-up">{infoblock.attributes.Titel}</h1>
                             </div>
                             {/*TEXT & IMG BLOCK*/}
-                            <div className='grid lg:grid-cols-11 gap-8 justify-center'>
-                                <div className='col-span-6 transition ease-in-out hover:-translate-y-2 duration-700 order-last lg:order-first'>
+                            <div className='grid justify-center gap-8 lg:grid-cols-11'>
+                                <div className='order-last col-span-6 transition duration-700 ease-in-out hover:-translate-y-2 lg:order-first'>
                                     <img src={infoblock.attributes.Bild.data.attributes.url} alt="kraftquelle felsenkeller kufstein" className="w-full " data-aos="fade-up" />
                                 </div>
-                                <div className='inline-flex flex-col my-auto col-span-5'>
+                                <div className='inline-flex flex-col col-span-5 my-auto'>
                                     <div className='w-16 h-2 bg-primary' data-aos="fade-up" />
-                                    <p className='tracking-wide text-xl mt-8' data-aos="fade-up">
-                                        <ReactMarkdown>
+                                    <p className='mt-8 text-xl tracking-wide' data-aos="fade-up">
+                                        <ReactMarkdown className="whitespace-pre-wrap">
                                             {infoblock.attributes.Text}
                                         </ReactMarkdown>
                                     </p>
@@ -32,21 +32,21 @@ export default function ContentWrapper({data}) {
                     ) : (
                         <div className="py-16 md:py-24 lg:py-32" key={infoblock.attributes.Titel} id={infoblock.attributes.Titel}>
                             {/*HEADER*/}
-                            <div className='grid lg:grid-cols-11 gap-8 mb-8'>
-                                <h1 className="col-span-5 text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-primary font-bold text-left" data-aos="fade-up">{infoblock.attributes.Titel}</h1>
+                            <div className='grid gap-8 mb-8 lg:grid-cols-11'>
+                                <h1 className="col-span-5 text-5xl font-bold text-left sm:text-6xl md:text-7xl xl:text-8xl text-primary" data-aos="fade-up">{infoblock.attributes.Titel}</h1>
                                 <div className='col-span-6' />
                             </div>
                             {/*TEXT & IMG BLOCK*/}
-                            <div className='grid lg:grid-cols-11 gap-8 justify-center'>
-                                <div className='inline-flex flex-col my-auto col-span-5'>
+                            <div className='grid justify-center gap-8 lg:grid-cols-11'>
+                                <div className='inline-flex flex-col col-span-5 my-auto'>
                                     <div className='w-16 h-2 bg-primary' data-aos="fade-up" />
-                                    <p className='tracking-wide text-xl mt-8' data-aos="fade-up">
-                                        <ReactMarkdown>
+                                    <p className='mt-8 text-xl tracking-wide' data-aos="fade-up">
+                                        <ReactMarkdown className="whitespace-pre-wrap">
                                             {infoblock.attributes.Text}
                                         </ReactMarkdown>
                                     </p>
                                 </div>
-                                <div className='col-span-6 transition ease-in-out hover:-translate-y-2 duration-700'>
+                                <div className='col-span-6 transition duration-700 ease-in-out hover:-translate-y-2'>
                                     <img src={infoblock.attributes.Bild.data.attributes.url} alt="kraftquelle felsenkeller kufstein" className="w-full" data-aos="fade-up" />
                                 </div>
                             </div>

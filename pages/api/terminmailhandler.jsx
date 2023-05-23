@@ -178,7 +178,7 @@ export default async function Mailer(req, res) {
                                         </tr>
                                         <tr>
                                             <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                                            <div style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:24px;text-align:left;color:#637381;">Vielen Dank für ihre Reservierung. Ihre Buchung wird unter folgenden Daten bei uns hinterlegt:</div>
+                                            <div style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:16px;font-weight:400;line-height:24px;text-align:left;color:#637381;">Vielen Dank für Ihre Reservierungsanfrage. Ihre Buchung wird unter folgenden Daten bei uns hinterlegt:</div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -314,6 +314,7 @@ export default async function Mailer(req, res) {
     const data = {
         to: body.email,
         from: 'kraftquelle.felsenkeller@gmail.com',
+        bcc: 'kraftquelle.felsenkeller@gmail.com',
         subject: 'Reservierungsanfrage ' + body.termin,
         text: message,
         html: message.replace(/\r\n/g, '<br>')

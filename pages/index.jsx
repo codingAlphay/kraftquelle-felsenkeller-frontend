@@ -15,6 +15,7 @@ export default function Home({infoblock}) {
     { ssr: false }
   )
 
+  //description hier
   return (
     <>
       <Head>
